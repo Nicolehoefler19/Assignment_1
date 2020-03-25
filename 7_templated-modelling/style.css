@@ -229,6 +229,16 @@ a:hover {
 	padding: 0px 0px 0px 0px;
 }
 
+#rabatt {
+	height: 100px;
+	width: 100%;
+	background: repeating-radial-gradient(rgb(255, 255, 255), rgba(0, 0, 109, 0.932));
+	font-weight: bold;
+	font-size: 1.5rem;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
 .post {
 	overflow: hidden;
 	margin-bottom: 20px;
