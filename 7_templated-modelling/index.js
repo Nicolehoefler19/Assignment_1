@@ -1,5 +1,6 @@
 
 //Alert-Spam
+/*
 alert("Willkommen! Wir begrüßen die recht herzlich auf unserer Webseite! >_<");
 
 do {
@@ -35,7 +36,7 @@ function setAge(alter){
 
     else {
         do {
-           neuesAlter = prompt("Bitte gib doch ein richtiges Alter an... ich glaube wohl kaum, dass du " + alterEingabe + " Jahre alt bist");
+           neuesAlter = prompt("Bitte gib doch ein richtiges Alter an... ich glaube wohl kaum, dass du " + alterEingabe + " Jahre alt bist:");
         }
         while (isNaN(neuesAlter) == true || neuesAlter === "");
         result = "Danke geht doch... :P";
@@ -46,3 +47,39 @@ function setAge(alter){
 
 alert("Also du heißt " + nameneingabe + " und bist " + alterEingabe + " Jahre alt.");
 alert("Genug Alerts für heute! Ist auch nicht gerade für die UX gut ;=)! Jetzt viel Spaß auf unserer Seite.");
+*/
+
+var nameneingabe = "NikiTEST"; //muss später WEG!!!
+var meinTitle = document.getElementById("meintitle");
+meinTitle.innerHTML = "Willkommen " + nameneingabe + " zu Modelling: deinem Modeberater!"; //Personalisiert die Seite
+
+//Button Feature
+
+//var element = document.getElementById('rabatt'); //Button wird aufgerufen
+//element.addEventListener('click', getRabatt);
+
+function getRabatt() {
+
+    //Rabattfrage
+    var myh2ForConfirm = document.createElement('h2');
+    var myConfirmQuestion = document.createTextNode('Willst du diesen Rabatt wirklich haben?');
+
+    myh2ForConfirm.appendChild(myConfirmQuestion);
+
+    var printInSection = document.getElementById('page');
+    printInSection.appendChild(myh2ForConfirm);
+}
+
+//Begrenzung fuer Ueberschrift
+
+//Input zum Ankreuzen
+//document.getElementById('rabatt').addEventListener('click', createRadio);
+
+//function createRadio(){
+  //  var radioForChoice = document.createElement("INPUT");
+    //radioForChoice.setAttribute('type', 'radio');
+
+    //document.page.appendChild(radioForChoice);
+    //}
+
+
