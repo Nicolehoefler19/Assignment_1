@@ -45,6 +45,7 @@ Released   : 20120617
 				<div class="post">
 					<h2 id="meintitle">Welcome to Modelling</h2>
 					<button type="button" id="rabatt" onclick="getRabatt()">Klick me for 50% of winter sale!</button>
+					<div id="a"></div>
 					<p class="meta"><span class="date">june 17, 2012</span><span class="posted">Posted by <a href="#">Someone</a></span></p>
 					<div style="clear: both;">&nbsp;</div>
 					<div class="entry">
@@ -52,6 +53,7 @@ Released   : 20120617
 						<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. Suspendisse dictum porta lectus. Donec placerat odio vel elit. <br />
 						</p>
 					</div>
+					<input type="button" id="animationbutton" name="Click for amazing animation"></input>
 				</div>
 			</div>
 			<!-- end #content -->
@@ -72,6 +74,24 @@ Released   : 20120617
 						</ul>
 					</li>
 				</ul>
+				<div id="sidebar-extension">
+					<form></form>
+					<h4>Our trendy clothes for you</h4>
+					<form>
+					<label>Choose your size
+					<select name="sizes" size="2">
+						<option onclick="changeArticlesOne()">S</option>
+						<option onclick="changeArticlesTwo()">M</option>
+					</select>
+					</label>
+				</form>
+					<ul id="fashionlist">
+						<li class="clothes" id="dress">Dress</li>
+						<li class="clothes" id="skirt">Skirt</li>
+						<li class="clothes" id="tshirt">T-shirt</li>
+						<li class="clothes" id="shoes">Shoes</li>
+					</ul>
+				</div>
 			</div>
 			<!-- end #sidebar -->
 			<div style="clear: both;">&nbsp;</div>
