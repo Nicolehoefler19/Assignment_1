@@ -58,28 +58,179 @@ meinTitle.innerHTML = "Willkommen " + nameneingabe + " zu Modelling: deinem Mode
 //var element = document.getElementById('rabatt'); //Button wird aufgerufen
 //element.addEventListener('click', getRabatt);
 
+//Rabattbutton
+
+//counter
+var counterForQuestion = 0;
+var counterForRadio = 0;
+
 function getRabatt() {
 
     //Rabattfrage
-    var myh2ForConfirm = document.createElement('h2');
-    var myConfirmQuestion = document.createTextNode('Willst du diesen Rabatt wirklich haben?');
+    if (counterForQuestion<1){
 
-    myh2ForConfirm.appendChild(myConfirmQuestion);
+        counterForQuestion++;
+        var myh2ForConfirm = document.createElement('h2');
+        var myConfirmQuestion = document.createTextNode('Willst du diesen Rabatt wirklich haben?');
 
-    var printInSection = document.getElementById('page');
-    printInSection.appendChild(myh2ForConfirm);
+        myh2ForConfirm.appendChild(myConfirmQuestion);
+
+        var printInSection = document.getElementById('a');
+        printInSection.appendChild(myh2ForConfirm);
+    }
+
+    else {
+        document.getElementById('rabatt'). disabled = true;
+    }
+    
+    document.getElementById('rabatt'). disabled = false;
+
+    //Überprüfung auf Aktivität des Buttons
+    if (document.getElementById('rabatt').disabled === false){
+        console.log("Rabatt-Button ist aktiv");
+    }
+
+    else if(document.getElementById('rabatt').disabled = true){
+        console.log("Rabatt-Button ist noch inaktiv");
+    }
+
+    else{
+        console.log("ERROR: Ein Fehler ist aufgetreten!");
+    }
+
+    //Radio kreieren
+    while (counterForRadio<1){ //funktioniert auch
+
+        if (counterForRadio<1){
+            document.getElementById('a').innerHTML += "<input type='radio' id='yes'>Ja</input>" + "<input type='radio' id='no'>Nein</input>";
+            counterForRadio++;//Kann man aber nicht mehr anklicken (radio)
+        }
+
+        else {
+            document.getElementById('rabatt').disabled = true;
+            document.getElementById('a').innerHTML += "<input type='radio' id='yes'>Ja</input>" + "<input type='radio' id='no'>Nein</input>";
+        }
+
+    }
+
+    //Auswahlmöglichkeiten
+
+    var yesRadio = document.getElementById('yes');
+    var noRadio = document.getElementById('no');
+
+    yesRadio.addEventListener('click', myFunction);
+    noRadio.addEventListener('click', myOtherFunction);
+
+    function myFunction(){
+        document.getElementById('no').disabled = true;
+
+        document.getElementById('a').innerHTML += '<h3>Super! Für deine Antwort bekommst du nochmal 90% Rabatt!<h3/>';
+        //gif animieren (JS Animation)
+
+        document.getElementById('a').innerHTML += '<input type="button" id="shutdownButton" value="Weiter"></input>';
+        //Button mit weiter -> wenn der klickt -> Shutdown
+
+
+    }
+
+    function myOtherFunction(){
+        document.getElementById('yes').disabled = true;
+        
+        document.getElementById('a').innerHTML += '<h3>Waaas? Warum nimmst du ein solches Angebot nicht an? Wähle eine oder mehrere Antwort! (Ich bin enttäuscht :()<h3/>';
+        document.getElementById('a').innerHTML += 
+        '<form><input type="checkbox" id="choice1" name="choices">Ich hab kein Bock mehr!</input></form>' + //vereinfachen
+        '<form><input type="checkbox" id="choice2" name="choices">Ich will mehr Rabatt</input></form>' + 
+        '<form><input type="checkbox" id="choice3" name="choices">Keine Ahnung ich bin lost!</input></form>';
+
+        //Eigene Antwort
+        document.getElementById('a').innerHTML += 
+        '<form><input id="freechoice" name="choices" value="Eigene Antwort"></input></form>'; //Style + InnerText wegmachen
+
+        document.getElementById('a').innerHTML += '<form><input type="submit" id="ok" value="senden"></input></form>';
+
+        window.document.getElementById('ok').addEventListener('click', submitted);
+
+        function submitted(){
+            //Machwas
+        }
+
+
+    }
+
+}
+/*
+var onoffsetter = false;
+
+function changeArticlesOne(){
+    var clothelist = Array.from(window.document.getElementsByClassName("clothes"));
+    if (!onoffsetter){
+        clothelist.forEach(function (addthis){
+
+           // addthis.classList.toggle("fashionlist"); //das in Dokumentation betonen als neue Funktion
+            addthis.innerHTML += '<form><input type="button" class="moreinfo" value="Just hover to see more details"></input></form>'; //wird immer wieder produziert
+
+            //let moreInformation = window.document.getElementById("moreinfo"); //cooler, wenn man drüber Hovert
+            //moreInformation.innerHTML += '<p>Platzhalter</p>' //hier muss erster Index angesprochen werden
+        })//warum flasch
+        //Inhalte vllt noch CSS verändern
+        var myArray = Array.from(window.document.getElementsByClassName("moreinfo"));
+
+        var firstButton = myArray[0];
+
+        firstButton.addEventListener('mouseover', ausgabe1);
+
+        function ausgabe1(){
+            window.document.getElementById("dress").innerHTML += '<label>Platzhalter</label>'; //funktioniert aber 4x
+            console.log("Erfolgreich ausgegeben");
+        }
+
+        var secondButton = myArray[1];
+
+        secondButton.addEventListener('mouseover', ausgabe2);
+
+        function ausgabe2(){
+            window.document.getElementById("skirt").innerHTML += '<label>Platzhalter</label>'; //funktioniert aber 4x
+            console.log("Erfolgreich ausgegeben");
+        }
+
+        var thirdButton = myArray[2];
+
+        thirdButton.addEventListener('mouseover', ausgabe3);
+
+        function ausgabe3(){
+            window.document.getElementById("tshirt").innerHTML += '<label>Platzhalter</label>'; //funktioniert aber 4x
+            console.log("Erfolgreich ausgegeben");
+        }
+
+        var fourthButton = myArray[3];
+
+        fourthButton.addEventListener('mouseover', ausgabe4);
+
+        function ausgabe4(){
+            window.document.getElementById("shoes").innerHTML += '<label>Platzhalter</label>'; //funktioniert aber 4x
+            console.log("Erfolgreich ausgegeben");
+        }
+        
+        onoffsetter = true;
+
+    }
+
+    else{
+
+        var hidebuttons = document.getElementsByClassName("fashionlist");
+        hidebuttons.style.display = 'none';
+        /*clothelist.forEach(function (addthis){
+            addthis.classList.toggle("fashionlist");
+            addthis.innerHTML += "Fashion articles";
+        })*/
+        onoffsetter = false;
+    }//prüfen was falsch ist
 }
 
-//Begrenzung fuer Ueberschrift
+function changeArticlesTwo(){
+//kommt dasselbe wie oben rein nur anderer Text
+//die andere Funktion muss gehidded werden
 
-//Input zum Ankreuzen
-//document.getElementById('rabatt').addEventListener('click', createRadio);
-
-//function createRadio(){
-  //  var radioForChoice = document.createElement("INPUT");
-    //radioForChoice.setAttribute('type', 'radio');
-
-    //document.page.appendChild(radioForChoice);
-    //}
+}
 
 
