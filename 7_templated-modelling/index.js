@@ -158,7 +158,7 @@ function getRabatt() {
     }
 
 }
-/*
+
 var onoffsetter = false;
 
 function changeArticlesOne(){
