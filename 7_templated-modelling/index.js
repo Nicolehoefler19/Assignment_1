@@ -1,6 +1,6 @@
 
 //Alert-Spam
-
+/*
 alert("Willkommen! Wir begrüßen die recht herzlich auf unserer Webseite! >_<");
 
 do {
@@ -47,7 +47,7 @@ function setAge(alter){
 
 alert("Also du heißt " + nameneingabe + " und bist " + alterEingabe + " Jahre alt.");
 alert("Genug Alerts für heute! Ist auch nicht gerade für die UX gut ;=)! Jetzt viel Spaß auf unserer Seite.");
-
+*/
 var nameneingabe = "NikiTEST"; //muss später WEG!!!
 var meinTitle = document.getElementById("meintitle");
 meinTitle.innerHTML = "Willkommen " + nameneingabe + " zu Modelling: deinem Modeberater!"; //Personalisiert die Seite
@@ -292,10 +292,13 @@ function animations(){
 }
 
 //5. Interaktionselement Countdown Math.function and date
-/*
+
 function rabattCountdown(){
 
     const selectedDate = new Date("March 2,2021 00:00:00");
+
+    var timer = setInterval(function innerTimer(){
+
     const today = new Date();
 
     const TimeforNow = today.getTime();
@@ -304,9 +307,19 @@ function rabattCountdown(){
     const restTime = TimeforFinal - TimeforNow;
 
     //Werte erhalten
-    const seconds = Math.floor(restTime/1000);
-    const minutes = Math.floor(seconds/60);
-    const hours = Math.floor (minutes/60);
+    const days = Math.floor(restTime/ (1000*60*60*24));
+    const hours = Math.floor((restTime % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor ((restTime % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor ((restTime % (1000*60)) / 1000);
 
+    var area = window.document.getElementById('countdown');
+    area.innerHTML = '<table><tbody><tr><td>' + days + '</td><td>' + hours + '</td><td>' + 
+    minutes + '</td><td>' + seconds + '</td></tr><tr><td>Days</td><td>Hours</td><td>Minutes</td><td>Seconds</td></tr></tbody></table>';
+
+    if(restTime < 0){
+        clearInterval(timer);
+        area.innerHTML = "Countdown is over. Please inform yourself for new Counddowns!";
+    }
+    })
 
 }
