@@ -1,6 +1,6 @@
 
 //Alert-Spam
-/*
+
 alert("Willkommen! Wir begrüßen die recht herzlich auf unserer Webseite! >_<");
 
 do {
@@ -47,7 +47,6 @@ function setAge(alter){
 
 alert("Also du heißt " + nameneingabe + " und bist " + alterEingabe + " Jahre alt.");
 alert("Genug Alerts für heute! Ist auch nicht gerade für die UX gut ;=)! Jetzt viel Spaß auf unserer Seite.");
-*/
 
 var nameneingabe = "NikiTEST"; //muss später WEG!!!
 var meinTitle = document.getElementById("meintitle");
@@ -166,13 +165,10 @@ function changeArticlesOne(){
     if (!onoffsetter){
         clothelist.forEach(function (addthis){
 
-           // addthis.classList.toggle("fashionlist"); //das in Dokumentation betonen als neue Funktion
             addthis.innerHTML += '<form><input type="button" class="moreinfo" value="Just hover to see more details"></input></form>'; //wird immer wieder produziert
 
-            //let moreInformation = window.document.getElementById("moreinfo"); //cooler, wenn man drüber Hovert
-            //moreInformation.innerHTML += '<p>Platzhalter</p>' //hier muss erster Index angesprochen werden
+
         })//warum flasch
-        //Inhalte vllt noch CSS verändern
         var myArray = Array.from(window.document.getElementsByClassName("moreinfo"));
 
         var firstButton = myArray[0];
@@ -215,17 +211,18 @@ function changeArticlesOne(){
 
     }
 
-    else{
+    /*else{
 
         var hidebuttons = document.getElementsByClassName("fashionlist");
         hidebuttons.style.display = 'none';
-        /*clothelist.forEach(function (addthis){
+        clothelist.forEach(function (addthis){
             addthis.classList.toggle("fashionlist");
             addthis.innerHTML += "Fashion articles";
-        })*/
-        onoffsetter = false;
-    }//prüfen was falsch ist
+        })
+        onoffsetter = false;*/
+    //prüfen was falsch ist
 }
+
 
 function changeArticlesTwo(){
 //kommt dasselbe wie oben rein nur anderer Text
@@ -234,3 +231,82 @@ function changeArticlesTwo(){
 }
 
 
+//viertes Interaktionselement: Animation
+
+function animations(){
+    
+    const gettext = window.document.getElementById("textalt");
+    let textfield =  document.getElementById('animation');
+    const text = gettext.innerHTML; //Zugriff auf Änderung des Text
+    var n = 0;
+    var speed = 100;
+    
+    function changeStyle(){
+      let animationArea = window.document.getElementById('animation');
+    }
+
+    function firstAnimator(){
+        if(n < text.length){
+            textfield.innerHTML += text.charAt(n);
+            n++;
+            setTimeout(firstAnimator, speed);
+        }
+        charCounter();
+    }
+
+    firstAnimator();
+    function charCounter(){
+        console.log("Recent characters: " + n);
+    }
+
+    //zweite Animation
+
+    function secondAnimator(){
+    var canvas = document.querySelector('canvas');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    var object = canvas.getContext('2d');
+
+    object.fillRect(100, 100, 100, 100,);
+    object.fillRect(50, 60, 70, 90);
+
+    //linien
+    object.beginPath();
+    object.moveTo(10, 30, 100);
+    object.lineTo(800, 90);
+    object.lineTo(500, 500);
+    object.lineTo(300, 345);
+
+    //stil
+
+    object.strokeStyle = "blue";
+
+    object.stroke();
+
+    }
+
+    secondAnimator();
+
+}
+
+//5. Interaktionselement Countdown Math.function and date
+/*
+function rabattCountdown(){
+
+    const selectedDate = new Date("March 2,2021 00:00:00");
+    const today = new Date();
+
+    const TimeforNow = today.getTime();
+    const TimeforFinal = selectedDate.getTime();
+
+    const restTime = TimeforFinal - TimeforNow;
+
+    //Werte erhalten
+    const seconds = Math.floor(restTime/1000);
+    const minutes = Math.floor(seconds/60);
+    const hours = Math.floor (minutes/60);
+
+
+}

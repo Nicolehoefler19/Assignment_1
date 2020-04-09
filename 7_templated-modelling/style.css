@@ -239,6 +239,16 @@ a:hover {
 	cursor: pointer;
 }
 
+#textalt {
+	display: none;
+}
+
+canvas {
+	border: 1px solid red;
+	width: 600px;
+	margin: 10px auto 10px auto;
+}
+
 .post {
 	overflow: hidden;
 	margin-bottom: 20px;
