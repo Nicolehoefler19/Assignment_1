@@ -143,14 +143,23 @@ function getRabatt() {
 
         //Eigene Antwort
         document.getElementById('a').innerHTML += 
-        '<form><input id="freechoice" name="choices" value="Eigene Antwort"></input></form>'; //Style + InnerText wegmachen
+        '<form><input id="freechoice" name="choices" placeholder="Eigene Antwort"></input></form>'; //Style + InnerText wegmachen
 
-        document.getElementById('a').innerHTML += '<form><input type="submit" id="ok" value="senden"></input></form>';
+        document.getElementById('a').innerHTML += '<input type="button" id="ok" value="senden"></input>';
 
-        window.document.getElementById('ok').addEventListener('click', submitted);
+        window.document.getElementById('ok').addEventListener('click', changeContent);
 
-        function submitted(){
-            //Machwas
+        function changeContent(){
+            var myHTTPRequest = new XMLHttpRequest()
+
+            myHTTPRequest.onreadystatechange = function changer(){
+                if(myHTTPRequest.readyState == 4 && myHTTPRequest.status == 200){
+                    let newContentArea = window.document.getElementById('a');
+                    newContentArea.innerHTML = myHTTPRequest.responseText;
+                }
+            }
+            myHTTPRequest.open("GET", "myXMLText.txt", true);
+            myHTTPRequest.send();
         }
 
 
