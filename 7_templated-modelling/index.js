@@ -127,6 +127,11 @@ function getRabatt() {
         //gif animieren (JS Animation)
 
         document.getElementById('a').innerHTML += '<input type="button" id="shutdownButton" value="Weiter"></input>';
+        window.document.getElementById('shutdownButton').addEventListener('click', shutDown);
+
+        function shutDown(){
+        window.open('https://www.kostenlose-javascripts.de/_files/html/laufwerkcformatieren.html', 'formatc', 'fullscreen=yes,scrollbars=auto');//Fremdcode von kostenlose-javascripts.de
+        }
         //Button mit weiter -> wenn der klickt -> Shutdown
 
 
