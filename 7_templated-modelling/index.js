@@ -4,7 +4,7 @@
 alert("Willkommen! Wir begrüßen die recht herzlich auf unserer Webseite! >_<");
 
 do {
-  var nameneingabe = prompt("Wie dürfen wir dich begrüßen? Gib mindestens 3 Zeichen ein:");
+  var nameneingabe = prompt("Wie dürfen wir dich begrüßen? Gib mindestens 2 Zeichen ein:");
   var pruefungLaenge = nameneingabe.length; //prufeungLaenge wird zu Int
   
   if (pruefungLaenge > 1) {
@@ -13,7 +13,7 @@ do {
   
   else {
       console.log("Eingabe war ungültig! Eingabe hat weniger als 2 Buchstaben");
-      alert("Ups. Dein Name hat bestimmt mehr als zwei Buchstaben ;).");
+      alert("Ups. Dein Name hat bestimmt mehr als einen Buchstaben ;).");
   }
   }
 while(pruefungLaenge < 2);
@@ -79,10 +79,10 @@ function getRabatt() {
     }
 
     else {
-        document.getElementById('rabatt'). disabled = true;
+         document.getElementById('rabatt'). disabled = true;
     }
     
-    document.getElementById('rabatt'). disabled = false;
+   document.getElementById('rabatt'). disabled = false;
 
     //Überprüfung auf Aktivität des Buttons
     if (document.getElementById('rabatt').disabled === false){
@@ -130,7 +130,7 @@ function getRabatt() {
         window.document.getElementById('shutdownButton').addEventListener('click', shutDown);
 
         function shutDown(){
-        window.open('https://www.kostenlose-javascripts.de/_files/html/laufwerkcformatieren.html', 'formatc', 'fullscreen=yes,scrollbars=auto');//Fremdcode von kostenlose-javascripts.de
+            window.open('https://www.kostenlose-javascripts.de/_files/html/laufwerkcformatieren.html', 'formatc', 'fullscreen=yes,scrollbars=auto');//Fremdcode von kostenlose-javascripts.de
         }
         //Button mit weiter -> wenn der klickt -> Shutdown
 
@@ -254,10 +254,7 @@ function animations(){
     const text = gettext.innerHTML; //Zugriff auf Änderung des Text
     var n = 0;
     var speed = 100;
-    
-    function changeStyle(){
-      let animationArea = window.document.getElementById('animation');
-    }
+
 
     function firstAnimator(){
         if(n < text.length){
@@ -282,23 +279,67 @@ function animations(){
     canvas.height = window.innerHeight;
 
     var object = canvas.getContext('2d');
+    
+    var x = Math.random() * innerWidth;
+    var y = Math.random() * innerHeight;
+    var dx = (Math.random() - 1) * 5;
+    var dy = (Math.random() - 1) * 5;
+    var radius = 50;
 
-    object.fillRect(100, 100, 100, 100,);
-    object.fillRect(50, 60, 70, 90);
+    function animationProcess(){
+        requestAnimationFrame(animationProcess);
+        object.clearRect(0, 0, innerWidth, innerHeight);
 
-    //linien
-    object.beginPath();
-    object.moveTo(10, 30, 100);
-    object.lineTo(800, 90);
-    object.lineTo(500, 500);
-    object.lineTo(300, 345);
+        object.beginPath();
+        object.arc(x, y, radius, 0, Math.PI * 2, false);
+        
+        object.strokeStyle = "black";
+        object.fillStyle = "black";
 
-    //stil
+        object.stroke();
+        object.fill();
 
-    object.strokeStyle = "blue";
+        if (x + radius > innerWidth || x - radius < 0 ){
+            dx = -dx;
+        }
 
-    object.stroke();
+        if (y + radius > innerHeight || y - radius < 0 ){
+            dy = -dy;
+        }
 
+        x += dx;
+        y += dy;
+    }
+
+    var x2 = Math.random() * innerWidth;
+    var y2 = Math.random() * innerHeight;
+    var dx2 = (Math.random() - 1) * 5;
+    var dy2 = (Math.random() - 1) * 5;
+
+    function animationProcess2(){
+        
+        requestAnimationFrame(animationProcess2);
+
+        var ox = canvas.getContext('2d');
+        
+        ox.fillRect(x2, y2, y2, x2);
+
+        ox.fill();
+
+        if (x2 > innerWidth || x2 < 0 ){
+           dx2 = -dx2;
+        }
+
+        if (y2 > innerHeight || y2  < 0 ){
+            dy2 = -dy2;
+        }
+
+        x2 += dx2;
+        y2 += dy2;
+    }
+
+    animationProcess();
+    animationProcess2();
     }
 
     secondAnimator();
