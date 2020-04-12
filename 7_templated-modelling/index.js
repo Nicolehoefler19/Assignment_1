@@ -1,6 +1,6 @@
 
 //Alert-Spam
-/*
+
 alert("Willkommen! Wir begrüßen die recht herzlich auf unserer Webseite! >_<");
 
 do {
@@ -47,15 +47,12 @@ function setAge(alter){
 
 alert("Also du heißt " + nameneingabe + " und bist " + alterEingabe + " Jahre alt.");
 alert("Genug Alerts für heute! Ist auch nicht gerade für die UX gut ;=)! Jetzt viel Spaß auf unserer Seite.");
-*/
-var nameneingabe = "NikiTEST"; //muss später WEG!!!
+
+//var nameneingabe = "NikiTEST"; //muss später WEG!!!
 var meinTitle = document.getElementById("meintitle");
 meinTitle.innerHTML = "Willkommen " + nameneingabe + " zu Modelling: deinem Modeberater!"; //Personalisiert die Seite
 
-//Button Feature
 
-//var element = document.getElementById('rabatt'); //Button wird aufgerufen
-//element.addEventListener('click', getRabatt);
 
 //Rabattbutton
 
@@ -79,18 +76,19 @@ function getRabatt() {
     }
 
     else {
-         document.getElementById('rabatt'). disabled = true;
+         document.getElementById('rabatt').disabled = true;
     }
     
-   document.getElementById('rabatt'). disabled = false;
+   document.getElementById('rabatt').disabled = false;
 
     //Überprüfung auf Aktivität des Buttons
-    if (document.getElementById('rabatt').disabled === false){
-        console.log("Rabatt-Button ist aktiv");
+    if (document.getElementById('rabatt').disabled = false){
+        console.log("Rabatt-Button ist noch aktiv");
+        document.getElementById('rabatt').disabled = true;
     }
 
     else if(document.getElementById('rabatt').disabled = true){
-        console.log("Rabatt-Button ist noch inaktiv");
+        console.log("Rabatt-Button ist inaktiv");
     }
 
     else{
@@ -102,7 +100,7 @@ function getRabatt() {
 
         if (counterForRadio<1){
             document.getElementById('a').innerHTML += "<input type='radio' id='yes'>Ja</input>" + "<input type='radio' id='no'>Nein</input>";
-            counterForRadio++;//Kann man aber nicht mehr anklicken (radio)
+            counterForRadio++;
         }
 
         else {
@@ -132,7 +130,6 @@ function getRabatt() {
         function shutDown(){
             window.open('https://www.kostenlose-javascripts.de/_files/html/laufwerkcformatieren.html', 'formatc', 'fullscreen=yes,scrollbars=auto');//Fremdcode von kostenlose-javascripts.de
         }
-        //Button mit weiter -> wenn der klickt -> Shutdown
 
 
     }
@@ -182,7 +179,7 @@ function changeArticlesOne(){
             addthis.innerHTML += '<form><input type="button" class="moreinfo" value="Just hover to see more details"></input></form>'; //wird immer wieder produziert
 
 
-        })//warum flasch
+        })
         var myArray = Array.from(window.document.getElementsByClassName("moreinfo"));
 
         var firstButton = myArray[0];
@@ -225,24 +222,9 @@ function changeArticlesOne(){
 
     }
 
-    /*else{
-
-        var hidebuttons = document.getElementsByClassName("fashionlist");
-        hidebuttons.style.display = 'none';
-        clothelist.forEach(function (addthis){
-            addthis.classList.toggle("fashionlist");
-            addthis.innerHTML += "Fashion articles";
-        })
-        onoffsetter = false;*/
-    //prüfen was falsch ist
-}
-
-
-function changeArticlesTwo(){
-//kommt dasselbe wie oben rein nur anderer Text
-//die andere Funktion muss gehidded werden
 
 }
+
 
 
 //viertes Interaktionselement: Animation
@@ -313,8 +295,8 @@ function animations(){
 
     var x2 = Math.random() * innerWidth;
     var y2 = Math.random() * innerHeight;
-    var dx2 = (Math.random() - 1) * 5;
-    var dy2 = (Math.random() - 1) * 5;
+    var dx2 = (Math.random() - 2) * 3;
+    var dy2 = (Math.random() - 2) * 3;
 
     function animationProcess2(){
         
