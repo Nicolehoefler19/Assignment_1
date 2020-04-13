@@ -228,8 +228,8 @@ function animations(){
     var n = 0;
     var speed = 100;
 
-
-    function firstAnimator(){
+//anonymous arrow functions
+    var firstAnimator = function (){
         if(n < text.length){
             textfield.innerHTML += text.charAt(n);
             n++;
