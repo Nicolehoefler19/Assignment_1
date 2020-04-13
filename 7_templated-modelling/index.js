@@ -1,5 +1,5 @@
 
-//Alert-Spam
+//Alert Spam
 
 alert("Willkommen! Wir begrüßen die recht herzlich auf unserer Webseite! >_<");
 
