@@ -65,11 +65,12 @@ function getRabatt() {
     //Rabattfrage
     if (counterForQuestion<1){
 
+        //Versuch Alternative zu .innerHTML += ....
         counterForQuestion++;
         var myh2ForConfirm = document.createElement('h2');
         var myConfirmQuestion = document.createTextNode('Willst du diesen Rabatt wirklich haben?');
 
-        myh2ForConfirm.appendChild(myConfirmQuestion);
+        myh2ForConfirm.appendChild(myConfirmQuestion); //Nutzung von appenChild
 
         var printInSection = document.getElementById('a');
         printInSection.appendChild(myh2ForConfirm);
@@ -98,15 +99,10 @@ function getRabatt() {
     //Radio kreieren
     while (counterForRadio<1){ //funktioniert auch
 
-        if (counterForRadio<1){
             document.getElementById('a').innerHTML += "<input type='radio' id='yes'>Ja</input>" + "<input type='radio' id='no'>Nein</input>";
             counterForRadio++;
-        }
 
-        else {
             document.getElementById('rabatt').disabled = true;
-            document.getElementById('a').innerHTML += "<input type='radio' id='yes'>Ja</input>" + "<input type='radio' id='no'>Nein</input>";
-        }
 
     }
 
@@ -169,11 +165,10 @@ function getRabatt() {
 
 }
 
-var onoffsetter = false;
 
 function changeArticlesOne(){
     var clothelist = Array.from(window.document.getElementsByClassName("clothes"));
-    if (!onoffsetter){
+
         clothelist.forEach(function (addthis){
 
             addthis.innerHTML += '<form><input type="button" class="moreinfo" value="Just hover to see more details"></input></form>'; //wird immer wieder produziert
@@ -218,10 +213,6 @@ function changeArticlesOne(){
             console.log("Erfolgreich ausgegeben");
         }
         
-        onoffsetter = true;
-
-    }
-
 
 }
 
@@ -264,8 +255,8 @@ function animations(){
     
     var x = Math.random() * innerWidth;
     var y = Math.random() * innerHeight;
-    var dx = (Math.random() - 1) * 5;
-    var dy = (Math.random() - 1) * 5;
+    var changex = (Math.random() - 1) * 5;
+    var changey = (Math.random() - 1) * 5;
     var radius = 50;
 
     function animationProcess(){
@@ -282,21 +273,21 @@ function animations(){
         object.fill();
 
         if (x + radius > innerWidth || x - radius < 0 ){
-            dx = -dx;
+            changex = -changex;
         }
 
         if (y + radius > innerHeight || y - radius < 0 ){
-            dy = -dy;
+            changey = -changey;
         }
 
-        x += dx;
-        y += dy;
+        x += changex;
+        y += changey;
     }
 
     var x2 = Math.random() * innerWidth;
     var y2 = Math.random() * innerHeight;
-    var dx2 = (Math.random() - 2) * 3;
-    var dy2 = (Math.random() - 2) * 3;
+    var changex2 = (Math.random() - 2) * 3;
+    var changey2 = (Math.random() - 2) * 3;
 
     function animationProcess2(){
         
@@ -309,19 +300,19 @@ function animations(){
         ox.fill();
 
         if (x2 > innerWidth || x2 < 0 ){
-           dx2 = -dx2;
+           changex2 = -changex2;
         }
 
         if (y2 > innerHeight || y2  < 0 ){
-            dy2 = -dy2;
+            changey2 = -changey2;
         }
 
-        x2 += dx2;
-        y2 += dy2;
+        x2 += changex2;
+        y2 += changey2;
     }
 
     animationProcess();
-    animationProcess2();
+    animationProcess2(); //damit Animationen durchgeführt werden
     }
 
     secondAnimator();
